@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ProgressContext } from "../hooks/useContent";
 import {
   ChevronLeft,
@@ -10,32 +10,26 @@ import {
 } from "lucide-react";
 import Button from "../components/Button";
 
-const Footer = () => {
+const Footer = ({ isCaption, captionHandler }) => {
   const { decreamentValue, increamentValue } = useContext(ProgressContext);
-  const [viewCaption, setViewCaption] = useState(true);
 
   return (
-    <footer className="w-full bg-white px-4 py-6">
-      {viewCaption && (
-        <div className="mb-6 text-base bg-gray-200 p-2">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam omnis
-          voluptatem sed facere dolor tempora totam. Facilis quos quaerat ut
-          tenetur nam.
-        </div>
-      )}
+    <footer className=" w-full bg-white px-4 py-6">
       <div className="flex items-center justify-between gap-3 flex-wrap">
         <div className="flex items-center gap-3 flex-wrap">
-          {viewCaption ? (
+          {!isCaption ? (
             <Button
               Icon={MessageSquareMore}
               title="Captions"
-              onClick={() => setViewCaption(false)}
+              isFixed={true}
+              onClick={() => captionHandler(true)}
             />
           ) : (
             <Button
               Icon={MessageSquare}
               title="Uncaptions"
-              onClick={() => setViewCaption(true)}
+              isFixed={true}
+              onClick={() => captionHandler(false)}
             />
           )}
           <Button Icon={StickyNote} title="Worksheet" />
