@@ -14,7 +14,8 @@ import { CaptionContext } from "../hooks/modules/CaptionContext";
 const Footer = () => {
   const { decreamentValue, increamentValue, replaySlide } =
     useContext(ProgressContext);
-  const { isCaption, showCaption, hideCaption } = useContext(CaptionContext);
+  const { isCaption, showCaption, hideCaption, setCaptionText } =
+    useContext(CaptionContext);
 
   return (
     <footer className=" w-full h-28 bg-white px-4 py-6">
@@ -43,10 +44,18 @@ const Footer = () => {
             Icon={ChevronLeft}
             title="Back"
             iconLocation="left"
-            onClick={decreamentValue}
+            onClick={() => {
+              decreamentValue(), setCaptionText(" ");
+            }}
           />
           <Button Icon={Repeat} title="Replay" onClick={replaySlide} />
-          <Button Icon={ChevronRight} title="Next" onClick={increamentValue} />
+          <Button
+            Icon={ChevronRight}
+            title="Next"
+            onClick={() => {
+              increamentValue(), setCaptionText(" ");
+            }}
+          />
         </div>
       </div>
     </footer>
