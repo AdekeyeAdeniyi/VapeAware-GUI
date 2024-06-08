@@ -23,8 +23,6 @@ const VideoPlayer = ({ timeLapseHandler, videoSrc, captionText, ...props }) => {
       }
     };
 
-    video.play();
-
     video.addEventListener("timeupdate", handleTimeUpdate);
     video.addEventListener("ended", () => setCaptionText(""));
 
