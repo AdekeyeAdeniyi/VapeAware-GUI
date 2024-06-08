@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 
 import { ProgressContext } from "../hooks/modules/ProgressContext";
+import { CaptionContext } from "../hooks/modules/CaptionContext";
+
 import Header from "../layout/Header";
 import Main from "../layout/Main";
 import Footer from "../layout/Footer";
@@ -9,6 +11,7 @@ import Logo from "../assets/images/logo.png";
 
 const DefaultPage = () => {
   const { slideValue } = useContext(ProgressContext);
+  const { isVideo } = useContext(CaptionContext);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [slideLoader, setSlideLoader] = useState(false);
@@ -30,13 +33,17 @@ const DefaultPage = () => {
   useEffect(() => {
     if (slideValue > 0) {
       setSlideLoader(true);
-      const timer = setTimeout(() => {
-        setSlideLoader(false);
-      }, 5000);
+      // const timer = setTimeout(() => {
+      //   setSlideLoader(false);
+      // }, 5000);
 
-      return () => clearTimeout(timer);
+      // return () => clearTimeout(timer);
     }
-  }, [slideValue]);
+
+    if (isVideo) {
+      setSlideLoader(false);
+    }
+  }, [slideValue, isVideo]);
 
   return (
     <>
