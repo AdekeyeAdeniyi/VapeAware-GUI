@@ -32,7 +32,7 @@ const DefaultPage = () => {
       setSlideLoader(true);
       const timer = setTimeout(() => {
         setSlideLoader(false);
-      }, 10000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
