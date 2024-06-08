@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProgressContext } from "../hooks/useContent";
+import { ProgressContext } from "../hooks/modules/ProgressContext";
 
 const ProgressBar = () => {
   const { value } = useContext(ProgressContext);

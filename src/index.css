@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Pangolin", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
+@layer components {
+  video {
+    height: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+    width: 100%;
+    object-position: top;
+  }
+  video::cue {
+    position: absolute !important;
+    bottom: 50px;
+    left: 10px;
+  }
+}

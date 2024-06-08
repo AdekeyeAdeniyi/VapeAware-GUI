@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProgressContext } from "../hooks/useContent";
+import { ProgressContext } from "../hooks/modules/ProgressContext";
 import {
   ChevronLeft,
   ChevronRight,
@@ -9,12 +9,15 @@ import {
   StickyNote,
 } from "lucide-react";
 import Button from "../components/Button";
+import { CaptionContext } from "../hooks/modules/CaptionContext";
 
-const Footer = ({ isCaption, captionHandler }) => {
-  const { decreamentValue, increamentValue } = useContext(ProgressContext);
+const Footer = () => {
+  const { decreamentValue, increamentValue, replaySlide } =
+    useContext(ProgressContext);
+  const { isCaption, showCaption, hideCaption } = useContext(CaptionContext);
 
   return (
-    <footer className=" w-full bg-white px-4 py-6">
+    <footer className=" w-full h-28 bg-white px-4 py-6">
       <div className="flex items-center justify-between gap-3 flex-wrap">
         <div className="flex items-center gap-3 flex-wrap">
           {!isCaption ? (
@@ -22,14 +25,14 @@ const Footer = ({ isCaption, captionHandler }) => {
               Icon={MessageSquareMore}
               title="Captions"
               isFixed={true}
-              onClick={() => captionHandler(true)}
+              onClick={showCaption}
             />
           ) : (
             <Button
               Icon={MessageSquare}
               title="Uncaptions"
               isFixed={true}
-              onClick={() => captionHandler(false)}
+              onClick={hideCaption}
             />
           )}
           <Button Icon={StickyNote} title="Worksheet" />
@@ -42,7 +45,7 @@ const Footer = ({ isCaption, captionHandler }) => {
             iconLocation="left"
             onClick={decreamentValue}
           />
-          <Button Icon={Repeat} title="Replay" />
+          <Button Icon={Repeat} title="Replay" onClick={replaySlide} />
           <Button Icon={ChevronRight} title="Next" onClick={increamentValue} />
         </div>
       </div>
