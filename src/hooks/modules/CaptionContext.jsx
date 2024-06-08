@@ -7,7 +7,6 @@ export const CaptionContext = createContext();
 export const CaptionProvider = ({ children }) => {
   const [caption, setCaption] = useState("");
   const [isCaption, setIsCaption] = useState(false);
-  const [isVideo, setIsVideo] = useState(false);
 
   const setCaptionText = (value) => setCaption(value);
 
@@ -27,8 +26,6 @@ export const CaptionProvider = ({ children }) => {
         setCaptionText,
         showCaption,
         hideCaption,
-        isVideo,
-        setIsVideo,
       }}
     >
       {children}

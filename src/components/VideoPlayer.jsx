@@ -3,7 +3,7 @@ import { CaptionContext } from "../hooks/modules/CaptionContext";
 
 const VideoPlayer = ({ timeLapseHandler, videoSrc, captionText, ...props }) => {
   const videoRef = useRef(null);
-  const { setCaptionText, setIsVideo } = useContext(CaptionContext);
+  const { setCaptionText } = useContext(CaptionContext);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -23,9 +23,8 @@ const VideoPlayer = ({ timeLapseHandler, videoSrc, captionText, ...props }) => {
       }
     };
 
-    if (video) {
-      setIsVideo(true);
-    }
+    video.play();
+
     video.addEventListener("timeupdate", handleTimeUpdate);
     video.addEventListener("ended", () => setCaptionText(""));
 
