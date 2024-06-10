@@ -1,5 +1,8 @@
 import { useContext } from "react";
 import { ProgressContext } from "../hooks/modules/ProgressContext";
+import { CaptionContext } from "../hooks/modules/CaptionContext";
+import { VideoContext } from "../hooks/modules/VideoContext";
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -9,13 +12,17 @@ import {
   StickyNote,
 } from "lucide-react";
 import Button from "../components/Button";
-import { CaptionContext } from "../hooks/modules/CaptionContext";
 
 const Footer = () => {
   const { decreamentValue, increamentValue, replaySlide } =
     useContext(ProgressContext);
   const { isCaption, showCaption, hideCaption, setCaptionText } =
     useContext(CaptionContext);
+  const { videoEnd, setVideoEnd } = useContext(VideoContext);
+
+  const reset = () => {
+    setCaptionText(" "), setVideoEnd(false);
+  };
 
   return (
     <footer className=" w-full h-28 bg-white px-4 py-6">
@@ -45,7 +52,7 @@ const Footer = () => {
             title="Back"
             iconLocation="left"
             onClick={() => {
-              decreamentValue(), setCaptionText(" ");
+              decreamentValue(), reset();
             }}
           />
           <Button Icon={Repeat} title="Replay" onClick={replaySlide} />
@@ -53,8 +60,9 @@ const Footer = () => {
             Icon={ChevronRight}
             title="Next"
             onClick={() => {
-              increamentValue(), setCaptionText(" ");
+              increamentValue(), reset();
             }}
+            style={{ backgroundColor: videoEnd && "#6a62e1" }}
           />
         </div>
       </div>

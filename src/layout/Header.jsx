@@ -17,6 +17,8 @@ const Header = () => {
         return "4 - Rules and regulations";
       case 4:
         return "5 - Short term";
+      case 5:
+        return "5 - Long term";
       default:
         break;
     }

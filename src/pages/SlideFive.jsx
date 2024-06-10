@@ -20,36 +20,36 @@ const SlideFive = () => {
     },
     {
       start: 2,
-      end: 4,
-      text: ". It can have some short-term impacts on health that include;",
-    },
-    {
-      start: 4,
       end: 5,
-      text: "coughing",
+      text: "It can have some short-term impacts on health that include;",
     },
     {
       start: 5,
       end: 6,
-      text: "trouble breathing",
+      text: "coughing",
     },
     {
       start: 6,
       end: 7,
-      text: "dry ,outh",
+      text: "trouble breathing",
     },
     {
       start: 7,
       end: 8,
-      text: "headaches",
+      text: "dry mouth",
     },
     {
       start: 8,
       end: 9,
-      text: "eye irritations",
+      text: "headaches",
     },
     {
       start: 9,
+      end: 10,
+      text: "eye irritations",
+    },
+    {
+      start: 10,
       end: 12,
       text: "and nausea.",
     },

@@ -1,9 +1,11 @@
 import { useContext, useEffect, useRef } from "react";
 import { CaptionContext } from "../hooks/modules/CaptionContext";
+import { VideoContext } from "../hooks/modules/VideoContext";
 
 const VideoPlayer = ({ timeLapseHandler, videoSrc, captionText, ...props }) => {
   const videoRef = useRef(null);
   const { setCaptionText } = useContext(CaptionContext);
+  const { setVideoEnd } = useContext(VideoContext);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -24,11 +26,17 @@ const VideoPlayer = ({ timeLapseHandler, videoSrc, captionText, ...props }) => {
     };
 
     video.addEventListener("timeupdate", handleTimeUpdate);
-    video.addEventListener("ended", () => setCaptionText(""));
+    video.addEventListener("ended", () => {
+      setCaptionText("");
+      setVideoEnd(true);
+    });
 
     return () => {
       video.removeEventListener("timeupdate", handleTimeUpdate);
-      video.removeEventListener("ended", () => setCaptionText(""));
+      video.addEventListener("ended", () => {
+        setCaptionText("");
+        setVideoEnd(true);
+      });
     };
   }, [captionText]);
   return (
