@@ -4,16 +4,27 @@ export default {
   theme: {
     extend: {
       animation: {
-        textSlideIn: "textSlideIn .5s linear forwards",
-        textSlideOut: "textSlideOut .5s linear forwards",
+        fadeIn: "fadeIn .5s linear forwards",
+        slideIn: "slideIn .5s linear forwards",
       },
       keyframes: {
-        textSlideIn: {
-          "100%": { transform: "translateX(0%)" },
+        slideIn: {
+          "0%": {
+            transform: "translateX(-200%)",
+            opacity: 0,
+          },
+
+          "100%": {
+            transform: "translateX(0%)",
+            opacity: 1,
+          },
         },
 
-        textSlideOut: {
-          "0%": { transform: "translateX(-100%)" },
+        fadeIn: {
+          "100%": {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
         },
       },
     },

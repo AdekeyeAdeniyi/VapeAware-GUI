@@ -8,6 +8,7 @@ import VapingSlide2 from "../assets/videos/vaping_slide_2.mp4";
 import BackgroundImage from "../assets/images/VapingLessonBackground1.png";
 import Caption from "../components/Caption";
 import Tooltip from "../components/Tooltip";
+import List from "../components/List";
 
 const SlideTwo = () => {
   const { isCaption } = useContext(CaptionContext);
@@ -58,16 +59,12 @@ const SlideTwo = () => {
 
       <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
         {videoTime < "17" && (
-          <div
-            className={`-translate-x-full ${
-              videoTime < "17" ? "animate-textSlideIn" : "animate-textSlideOut"
-            }`}
-          >
+          <div className="animate-slideIn">
             <h3 className="group relative text-3xl md:text-5xl mb-4">
               Vaping: <Tooltip text="Vaping" />
             </h3>
             <ul className="text-xl md:text-3xl list-disc space-y-4">
-              <li>
+              <List delaytime=".8s">
                 <span className="group relative">
                   Devices <Tooltip text="Devices" />
                 </span>
@@ -75,8 +72,9 @@ const SlideTwo = () => {
                 <span className="group relative">
                   vapor. <Tooltip text="Vapor" />
                 </span>
-              </li>
-              <li>
+              </List>
+
+              <List delaytime="3.5s">
                 <span className="group relative">
                   Vaping liquids <Tooltip text="Vaping liquids" />
                 </span>{" "}
@@ -85,17 +83,16 @@ const SlideTwo = () => {
                   chemicals <Tooltip text="Chemicals" />
                 </span>{" "}
                 and flavorings in them.
-              </li>
-              <li>The liquid isn’t just water.</li>
+              </List>
+
+              <List delaytime="9.5s">The liquid isn’t just water.</List>
             </ul>
           </div>
         )}
         {videoTime > "17" && (
-          <div className="-translate-x-full animate-textSlideIn">
-            <h3 className="text-5xl mb-4">
-              Most vaping products contain nicotine.
-            </h3>
-          </div>
+          <h3 className="text-5xl mb-4">
+            Most vaping products contain nicotine.
+          </h3>
         )}
       </div>
       {isCaption && <Caption />}

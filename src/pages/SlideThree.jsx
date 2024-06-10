@@ -8,6 +8,7 @@ import VapingSlide3 from "../assets/videos/vaping_slide_3.mp4";
 import BackgroundImage from "../assets/images/VapingLessonBackground2.png";
 import Caption from "../components/Caption";
 import Tooltip from "../components/Tooltip";
+import List from "../components/List";
 
 const SlideThree = () => {
   const { isCaption } = useContext(CaptionContext);
@@ -70,30 +71,32 @@ const SlideThree = () => {
       />
 
       <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
-        <div className="-translate-x-full animate-textSlideIn">
+        <div className="animate-slideIn">
           <h3 className="group relative text-3xl md:text-5xl mb-4">
-            Nicotine: <Tooltip text="Vaping" />
+            Nicotine: <Tooltip text="Nicotine" />
           </h3>
           <ul className="text-xl md:text-3xl list-disc space-y-4">
-            <li>
+            <List delaytime="2.5s">
               A{" "}
               <span className="group relative">
                 stimulant <Tooltip text="Stimulant" />
               </span>{" "}
               drug
-            </li>
-            <li>
+            </List>
+
+            <List delaytime="8.5s">
               Use can lead to{" "}
               <span className="group relative">
                 addiction <Tooltip text="Addiction" />
               </span>
-            </li>
-            <li>
+            </List>
+
+            <List delaytime="24.5s">
               Nicotine{" "}
               <span className="group relative">
                 withdrawal <Tooltip text="Withdrawal" />
               </span>
-            </li>
+            </List>
           </ul>
         </div>
       </div>
