@@ -15,6 +15,8 @@ const Header = () => {
         return "3 - Nicotine and Addiction";
       case 3:
         return "4 - Rules and regulations";
+      case 4:
+        return "5 - Short term";
       default:
         break;
     }
