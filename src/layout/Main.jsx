@@ -4,6 +4,7 @@ import { ProgressContext } from "../hooks/modules/ProgressContext";
 import SlideOne from "../pages/SlideOne";
 import SlideTwo from "../pages/SlideTwo";
 import SlideThree from "../pages/SlideThree";
+import SlideFour from "../pages/SlideFour";
 
 const Main = () => {
   const { key, slideValue } = useContext(ProgressContext);
@@ -16,6 +17,8 @@ const Main = () => {
         return <SlideTwo key={key} />;
       case 2:
         return <SlideThree key={key} />;
+      case 3:
+        return <SlideFour key={key} />;
       default:
         return <div>Unknown Slide</div>;
     }
