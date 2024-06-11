@@ -19,6 +19,8 @@ const Header = () => {
         return "5 - Short term";
       case 5:
         return "5 - Long term";
+      case 6:
+        return "7 – Evali";
       default:
         break;
     }

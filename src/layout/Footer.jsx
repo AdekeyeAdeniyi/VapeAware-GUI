@@ -55,7 +55,13 @@ const Footer = () => {
               decreamentValue(), reset();
             }}
           />
-          <Button Icon={Repeat} title="Replay" onClick={replaySlide} />
+          <Button
+            Icon={Repeat}
+            title="Replay"
+            onClick={() => {
+              replaySlide(), reset();
+            }}
+          />
           <Button
             Icon={ChevronRight}
             title="Next"

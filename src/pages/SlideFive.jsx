@@ -82,7 +82,7 @@ const SlideFive = () => {
 
       <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
         <div className="animate-slideIn">
-          <h3 className="group relative text-3xl md:text-5xl mb-4">
+          <h3 className="group block relative text-3xl md:text-5xl mb-4">
             Short-term impacts:
           </h3>
           <ul className="text-xl md:text-3xl list-disc space-y-4">
@@ -93,12 +93,12 @@ const SlideFive = () => {
             <List delaytime="7s">Dry mouth</List>
             <List delaytime="8s">Headaches</List>
             <List delaytime="9s">
-              <span className="group relative">
+              <span className="group block relative w-full">
                 Eye Irritations <Tooltip text="Eye Irritations" />
               </span>
             </List>
             <List delaytime="10s">
-              <span className="group relative">
+              <span className="group block relative w-full">
                 Nausea <Tooltip text="Nausea" />
               </span>
             </List>

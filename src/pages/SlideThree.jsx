@@ -78,7 +78,7 @@ const SlideThree = () => {
           <ul className="text-xl md:text-3xl list-disc space-y-4">
             <List delaytime="2.5s">
               A{" "}
-              <span className="group relative">
+              <span className="group block relative w-full">
                 stimulant <Tooltip text="Stimulant" />
               </span>{" "}
               drug
@@ -86,14 +86,14 @@ const SlideThree = () => {
 
             <List delaytime="8.5s">
               Use can lead to{" "}
-              <span className="group relative">
+              <span className="group block relative w-full">
                 addiction <Tooltip text="Addiction" />
               </span>
             </List>
 
             <List delaytime="24.5s">
               Nicotine{" "}
-              <span className="group relative">
+              <span className="group block relative w-full">
                 withdrawal <Tooltip text="Withdrawal" />
               </span>
             </List>

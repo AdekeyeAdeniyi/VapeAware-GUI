@@ -65,21 +65,21 @@ const SlideTwo = () => {
             </h3>
             <ul className="text-xl md:text-3xl list-disc space-y-4">
               <List delaytime=".8s">
-                <span className="group relative">
+                <span className="group block relative w-full">
                   Devices <Tooltip text="Devices" />
                 </span>
                 heat a liquid into a{" "}
-                <span className="group relative">
+                <span className="group block relative w-full">
                   vapor. <Tooltip text="Vapor" />
                 </span>
               </List>
 
               <List delaytime="3.5s">
-                <span className="group relative">
+                <span className="group block relative w-full">
                   Vaping liquids <Tooltip text="Vaping liquids" />
                 </span>{" "}
                 have nicotine, harmful{" "}
-                <span className="group relative">
+                <span className="group block relative w-full">
                   chemicals <Tooltip text="Chemicals" />
                 </span>{" "}
                 and flavorings in them.

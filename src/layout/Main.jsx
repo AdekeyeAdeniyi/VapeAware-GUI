@@ -7,6 +7,7 @@ import SlideThree from "../pages/SlideThree";
 import SlideFour from "../pages/SlideFour";
 import SlideFive from "../pages/SlideFive";
 import SlideSix from "../pages/SlideSix";
+import SlideSeven from "../pages/SlideSeven";
 
 const Main = () => {
   const { key, slideValue } = useContext(ProgressContext);
@@ -25,6 +26,8 @@ const Main = () => {
         return <SlideFive key={key} />;
       case 5:
         return <SlideSix key={key} />;
+      case 6:
+        return <SlideSeven key={key} />;
       default:
         return <div>Unknown Slide</div>;
     }
