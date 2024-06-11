@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 
 import VideoPlayer from "../components/VideoPlayer";
@@ -12,6 +12,7 @@ import List from "../components/List";
 
 const SlideFive = () => {
   const { isCaption } = useContext(CaptionContext);
+  const [videoTime, setVideoTime] = useState(null);
   const Captions = [
     {
       start: 0,
@@ -77,34 +78,37 @@ const SlideFive = () => {
       <VideoPlayer
         videoSrc={VapingSlide5}
         captionText={Captions}
+        timeLapseHandler={setVideoTime}
         className="w-[200px] md:w-[300px] h-auto right-0 top-0 absolute border-4 border-indigo-500"
       />
 
-      <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
-        <div className="animate-slideIn">
-          <h3 className="group block relative text-3xl md:text-5xl mb-4">
-            Short-term impacts:
-          </h3>
-          <ul className="text-xl md:text-3xl list-disc space-y-4">
-            <List delaytime="5s">Coughing</List>
+      {videoTime && (
+        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+          <div className="animate-slideIn">
+            <h3 className="group block relative text-3xl md:text-5xl mb-4">
+              Short-term impacts:
+            </h3>
+            <ul className="text-xl md:text-3xl list-disc space-y-4">
+              <List delaytime="5s">Coughing</List>
 
-            <List delaytime="6s">Trouble breathing</List>
+              <List delaytime="6s">Trouble breathing</List>
 
-            <List delaytime="7s">Dry mouth</List>
-            <List delaytime="8s">Headaches</List>
-            <List delaytime="9s">
-              <span className="group inline-block relative">
-                Eye Irritations <Tooltip text="Eye Irritations" />
-              </span>
-            </List>
-            <List delaytime="10s">
-              <span className="group inline-block relative">
-                Nausea <Tooltip text="Nausea" />
-              </span>
-            </List>
-          </ul>
+              <List delaytime="7s">Dry mouth</List>
+              <List delaytime="8s">Headaches</List>
+              <List delaytime="9s">
+                <span className="group inline-block relative">
+                  Eye Irritations <Tooltip text="Eye Irritations" />
+                </span>
+              </List>
+              <List delaytime="10s">
+                <span className="group inline-block relative">
+                  Nausea <Tooltip text="Nausea" />
+                </span>
+              </List>
+            </ul>
+          </div>
         </div>
-      </div>
+      )}
       {isCaption && <Caption />}
     </>
   );

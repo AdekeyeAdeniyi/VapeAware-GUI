@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 
 import VideoPlayer from "../components/VideoPlayer";
@@ -12,6 +12,7 @@ import List from "../components/List";
 
 const SlideSix = () => {
   const { isCaption } = useContext(CaptionContext);
+  const [videoTime, setVideoTime] = useState(null);
   const Captions = [
     {
       start: 0,
@@ -82,48 +83,52 @@ const SlideSix = () => {
       <VideoPlayer
         videoSrc={VapingSlide5}
         captionText={Captions}
+        timeLapseHandler={setVideoTime}
         className="w-[200px] md:w-[300px] h-auto right-0 top-0 absolute border-4 border-indigo-500"
       />
 
-      <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
-        <div className="animate-slideIn">
-          <h3 className="group relative text-3xl md:text-5xl mb-4">
-            Long-term impacts:
-          </h3>
-          <ul className="text-xl md:text-3xl list-disc space-y-4">
-            <List delaytime="8s">
-              <span className="group inline-block relative">
-                Anxiety <Tooltip text="Anxiety" />
-              </span>
-            </List>
-            <List delaytime="9s">
-              <span className="group inline-block relative">
-                Depression <Tooltip text="Depression" />
-              </span>
-            </List>
-            <List delaytime="10s">Sleeping problem</List>
-            <List delaytime="12s">
-              <span className="group inline-block relative">
-                Lungs damage <Tooltip text="Lungs damage" />
-              </span>
-            </List>
-            <List delaytime="13s">Trouble focusing</List>
-            <List delaytime="15s">
-              <span className="group inline-block relative">
-                Organ damage <Tooltip text="Organ Damage" />
-              </span>
-            </List>
-            <List delaytime="17s">
-              <span className="group inline-block relative">
-                Chemical exporsure <Tooltip text="Chemical exporsure" />
-              </span>
-            </List>
-            <List delaytime="22s">
-              More likely to get addicted to other drugs
-            </List>
-          </ul>
+      {videoTime && (
+        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+          <div className="animate-slideIn">
+            <h3 className="group relative text-3xl md:text-5xl mb-4">
+              Long-term impacts:
+            </h3>
+            <ul className="text-xl md:text-3xl list-disc space-y-4">
+              <List delaytime="8s">
+                <span className="group inline-block relative">
+                  Anxiety <Tooltip text="Anxiety" />
+                </span>
+              </List>
+              <List delaytime="9s">
+                <span className="group inline-block relative">
+                  Depression <Tooltip text="Depression" />
+                </span>
+              </List>
+              <List delaytime="10s">Sleeping problem</List>
+              <List delaytime="12s">
+                <span className="group inline-block relative">
+                  Lungs damage <Tooltip text="Lungs damage" />
+                </span>
+              </List>
+              <List delaytime="13s">Trouble focusing</List>
+              <List delaytime="15s">
+                <span className="group inline-block relative">
+                  Organ damage <Tooltip text="Organ Damage" />
+                </span>
+              </List>
+              <List delaytime="17s">
+                <span className="group inline-block relative">
+                  Chemical exporsure <Tooltip text="Chemical exporsure" />
+                </span>
+              </List>
+              <List delaytime="22s">
+                More likely to get addicted to other drugs
+              </List>
+            </ul>
+          </div>
         </div>
-      </div>
+      )}
+
       {isCaption && <Caption />}
     </>
   );

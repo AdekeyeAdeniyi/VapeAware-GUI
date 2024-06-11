@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 
 import VideoPlayer from "../components/VideoPlayer";
@@ -12,6 +12,8 @@ import List from "../components/List";
 
 const SlideThree = () => {
   const { isCaption } = useContext(CaptionContext);
+  const [videoTime, setVideoTime] = useState(null);
+
   const Captions = [
     {
       start: 0,
@@ -67,39 +69,42 @@ const SlideThree = () => {
       <VideoPlayer
         videoSrc={VapingSlide3}
         captionText={Captions}
+        timeLapseHandler={setVideoTime}
         className="w-[200px] md:w-[300px] h-auto right-0 top-0 absolute border-4 border-indigo-500"
       />
 
-      <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
-        <div className="animate-slideIn">
-          <h3 className="group relative text-3xl md:text-5xl mb-4">
-            Nicotine: <Tooltip text="Nicotine" />
-          </h3>
-          <ul className="text-xl md:text-3xl list-disc space-y-4">
-            <List delaytime="5s">
-              A{" "}
-              <span className="group inline-block relative">
-                stimulant <Tooltip text="Stimulant" />
-              </span>{" "}
-              drug
-            </List>
+      {videoTime && (
+        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+          <div className="animate-slideIn">
+            <h3 className="group relative text-3xl md:text-5xl mb-4">
+              Nicotine: <Tooltip text="Nicotine" />
+            </h3>
+            <ul className="text-xl md:text-3xl list-disc space-y-4">
+              <List delaytime="5s">
+                A{" "}
+                <span className="group inline-block relative">
+                  stimulant <Tooltip text="Stimulant" />
+                </span>{" "}
+                drug
+              </List>
 
-            <List delaytime="11s">
-              Use can lead to{" "}
-              <span className="group inline-block relative">
-                addiction <Tooltip text="Addiction" />
-              </span>
-            </List>
+              <List delaytime="11s">
+                Use can lead to{" "}
+                <span className="group inline-block relative">
+                  addiction <Tooltip text="Addiction" />
+                </span>
+              </List>
 
-            <List delaytime="28s">
-              Nicotine{" "}
-              <span className="group inline-block relative">
-                withdrawal <Tooltip text="Withdrawal" />
-              </span>
-            </List>
-          </ul>
+              <List delaytime="28s">
+                Nicotine{" "}
+                <span className="group inline-block relative">
+                  withdrawal <Tooltip text="Withdrawal" />
+                </span>
+              </List>
+            </ul>
+          </div>
         </div>
-      </div>
+      )}
       {isCaption && <Caption />}
     </>
   );

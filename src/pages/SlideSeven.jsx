@@ -68,37 +68,41 @@ const SlideSeven = () => {
         className="w-[200px] md:w-[300px] h-auto right-0 top-0 absolute border-4 border-indigo-500"
       />
 
-      <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
-        {videoTime < 20 ? (
-          <div className="animate-slideIn">
-            <h3 className="group relative text-3xl md:text-5xl mb-4">EVALI:</h3>
-            <ul className="text-xl md:text-3xl list-disc space-y-4">
-              <List delaytime="4s">
-                <span className="group block relative w-full">
-                  EVALI{" "}
-                  <Tooltip text="E-cigarette or Vaping Use-Associated Lung Injury" />
+      {videoTime && (
+        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+          {videoTime < 20 ? (
+            <div className="animate-slideIn">
+              <h3 className="group relative text-3xl md:text-5xl mb-4">
+                EVALI:
+              </h3>
+              <ul className="text-xl md:text-3xl list-disc space-y-4">
+                <List delaytime="4s">
+                  <span className="group block relative w-full">
+                    EVALI{" "}
+                    <Tooltip text="E-cigarette or Vaping Use-Associated Lung Injury" />
+                  </span>
+                </List>
+                <List delaytime="9s">Severe lung disease</List>
+                <List delaytime="15s">Leads to hospitalization</List>
+                <List delaytime="19s">Can cause death</List>
+              </ul>
+            </div>
+          ) : (
+            <div className="animate-slideIn">
+              <h3 className="group relative text-3xl md:text-5xl mb-4">
+                <span className="group inline-block relative">
+                  Vitamin E acetate: <Tooltip text="Vitamin E acetate:" />
                 </span>
-              </List>
-              <List delaytime="9s">Severe lung disease</List>
-              <List delaytime="15s">Leads to hospitalization</List>
-              <List delaytime="19s">Can cause death</List>
-            </ul>
-          </div>
-        ) : (
-          <div className="animate-slideIn">
-            <h3 className="group relative text-3xl md:text-5xl mb-4">
-              <span className="group inline-block relative">
-                Vitamin E acetate: <Tooltip text="Vitamin E acetate:" />
-              </span>
-            </h3>
-            <ul className="text-xl md:text-3xl list-disc space-y-4">
-              <List delaytime="26s">Safe in foods</List>
-              <List delaytime="30s">Safe in skin care products</List>
-              <List delaytime="34s">Shouldn’t be inhaled</List>
-            </ul>
-          </div>
-        )}
-      </div>
+              </h3>
+              <ul className="text-xl md:text-3xl list-disc space-y-4">
+                <List delaytime="26s">Safe in foods</List>
+                <List delaytime="30s">Safe in skin care products</List>
+                <List delaytime="34s">Shouldn’t be inhaled</List>
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
       {isCaption && <Caption />}
     </>
   );

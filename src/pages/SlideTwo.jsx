@@ -57,44 +57,46 @@ const SlideTwo = () => {
         className="w-[200px] md:w-[300px] h-auto right-0 top-0 absolute border-4 border-indigo-500"
       />
 
-      <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
-        {videoTime < "17" && (
-          <div className="animate-slideIn">
-            <h3 className="group relative text-3xl md:text-5xl mb-4">
-              Vaping: <Tooltip text="Vaping" />
+      {videoTime && (
+        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+          {videoTime < "17" && (
+            <div className="animate-slideIn">
+              <h3 className="group relative text-3xl md:text-5xl mb-4">
+                Vaping: <Tooltip text="Vaping" />
+              </h3>
+              <ul className="text-xl md:text-3xl list-disc space-y-4">
+                <List delaytime="2s">
+                  <span className="group inline-block relative">
+                    Devices <Tooltip text="Devices" />
+                  </span>{" "}
+                  heat a liquid into a{" "}
+                  <span className="group inline-block relative">
+                    vapor. <Tooltip text="Vapor" />
+                  </span>
+                </List>
+
+                <List delaytime="5s">
+                  <span className="group inline-block relative">
+                    Vaping liquids <Tooltip text="Vaping liquids" />
+                  </span>{" "}
+                  have nicotine, harmful{" "}
+                  <span className="group inline-block relative">
+                    chemicals <Tooltip text="Chemicals" />
+                  </span>{" "}
+                  and flavorings in them.
+                </List>
+
+                <List delaytime="14s">The liquid isn’t just water.</List>
+              </ul>
+            </div>
+          )}
+          {videoTime > "17" && (
+            <h3 className="text-5xl mb-4">
+              Most vaping products contain nicotine.
             </h3>
-            <ul className="text-xl md:text-3xl list-disc space-y-4">
-              <List delaytime="2s">
-                <span className="group inline-block relative">
-                  Devices <Tooltip text="Devices" />
-                </span>{" "}
-                heat a liquid into a{" "}
-                <span className="group inline-block relative">
-                  vapor. <Tooltip text="Vapor" />
-                </span>
-              </List>
-
-              <List delaytime="5s">
-                <span className="group inline-block relative">
-                  Vaping liquids <Tooltip text="Vaping liquids" />
-                </span>{" "}
-                have nicotine, harmful{" "}
-                <span className="group inline-block relative">
-                  chemicals <Tooltip text="Chemicals" />
-                </span>{" "}
-                and flavorings in them.
-              </List>
-
-              <List delaytime="14s">The liquid isn’t just water.</List>
-            </ul>
-          </div>
-        )}
-        {videoTime > "17" && (
-          <h3 className="text-5xl mb-4">
-            Most vaping products contain nicotine.
-          </h3>
-        )}
-      </div>
+          )}
+        </div>
+      )}
       {isCaption && <Caption />}
     </>
   );

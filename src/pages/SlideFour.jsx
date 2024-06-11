@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 
 import VideoPlayer from "../components/VideoPlayer";
@@ -12,6 +12,7 @@ import List from "../components/List";
 
 const SlideFour = () => {
   const { isCaption } = useContext(CaptionContext);
+  const [videoTime, setVideoTime] = useState(null);
   const Captions = [
     {
       start: 0,
@@ -77,33 +78,39 @@ const SlideFour = () => {
       <VideoPlayer
         videoSrc={VapingSlide4}
         captionText={Captions}
+        timeLapseHandler={setVideoTime}
         className="w-[200px] md:w-[300px] h-auto right-0 top-0 absolute border-4 border-indigo-500"
       />
 
-      <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
-        <div className="animate-slideIn">
-          <h3 className="group relative text-3xl md:text-5xl mb-4">
-            Rules and regulations: <Tooltip text="Rules and regulations" />
-          </h3>
-          <ul className="text-xl md:text-3xl list-disc space-y-4">
-            <List delaytime="4s">Nicotine amounts and chemicals can vary.</List>
+      {videoTime && (
+        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+          <div className="animate-slideIn">
+            <h3 className="group relative text-3xl md:text-5xl mb-4">
+              Rules and regulations: <Tooltip text="Rules and regulations" />
+            </h3>
+            <ul className="text-xl md:text-3xl list-disc space-y-4">
+              <List delaytime="4s">
+                Nicotine amounts and chemicals can vary.
+              </List>
 
-            <List delaytime="12s">
-              <span className="group inline-block relative">
-                Warning labels <Tooltip text=" Warning labels" />
-              </span>{" "}
-              about nicotine and addiction.
-            </List>
+              <List delaytime="12s">
+                <span className="group inline-block relative">
+                  Warning labels <Tooltip text=" Warning labels" />
+                </span>{" "}
+                about nicotine and addiction.
+              </List>
 
-            <List delaytime="31s">
-              Someone has to be 21 to buy vaping products.
-            </List>
-            <List delaytime="36s">
-              All vaping devices and products are harmful for young people.
-            </List>
-          </ul>
+              <List delaytime="31s">
+                Someone has to be 21 to buy vaping products.
+              </List>
+              <List delaytime="36s">
+                All vaping devices and products are harmful for young people.
+              </List>
+            </ul>
+          </div>
         </div>
-      </div>
+      )}
+
       {isCaption && <Caption />}
     </>
   );
