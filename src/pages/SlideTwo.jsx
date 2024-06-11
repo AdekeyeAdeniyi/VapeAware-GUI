@@ -64,28 +64,28 @@ const SlideTwo = () => {
               Vaping: <Tooltip text="Vaping" />
             </h3>
             <ul className="text-xl md:text-3xl list-disc space-y-4">
-              <List delaytime=".8s">
-                <span className="group block relative w-full">
+              <List delaytime="2s">
+                <span className="group inline-block relative">
                   Devices <Tooltip text="Devices" />
-                </span>
+                </span>{" "}
                 heat a liquid into a{" "}
-                <span className="group block relative w-full">
+                <span className="group inline-block relative">
                   vapor. <Tooltip text="Vapor" />
                 </span>
               </List>
 
-              <List delaytime="3.5s">
-                <span className="group block relative w-full">
+              <List delaytime="5s">
+                <span className="group inline-block relative">
                   Vaping liquids <Tooltip text="Vaping liquids" />
                 </span>{" "}
                 have nicotine, harmful{" "}
-                <span className="group block relative w-full">
+                <span className="group inline-block relative">
                   chemicals <Tooltip text="Chemicals" />
                 </span>{" "}
                 and flavorings in them.
               </List>
 
-              <List delaytime="9.5s">The liquid isn’t just water.</List>
+              <List delaytime="14s">The liquid isn’t just water.</List>
             </ul>
           </div>
         )}

@@ -92,29 +92,29 @@ const SlideSix = () => {
           </h3>
           <ul className="text-xl md:text-3xl list-disc space-y-4">
             <List delaytime="8s">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Anxiety <Tooltip text="Anxiety" />
               </span>
             </List>
             <List delaytime="9s">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Depression <Tooltip text="Depression" />
               </span>
             </List>
             <List delaytime="10s">Sleeping problem</List>
             <List delaytime="12s">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Lungs damage <Tooltip text="Lungs damage" />
               </span>
             </List>
             <List delaytime="13s">Trouble focusing</List>
             <List delaytime="15s">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Organ damage <Tooltip text="Organ Damage" />
               </span>
             </List>
             <List delaytime="17s">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Chemical exporsure <Tooltip text="Chemical exporsure" />
               </span>
             </List>

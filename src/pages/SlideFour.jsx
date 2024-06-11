@@ -89,7 +89,7 @@ const SlideFour = () => {
             <List delaytime="4s">Nicotine amounts and chemicals can vary.</List>
 
             <List delaytime="12s">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Warning labels <Tooltip text=" Warning labels" />
               </span>{" "}
               about nicotine and addiction.

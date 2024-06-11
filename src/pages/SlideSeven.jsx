@@ -87,7 +87,7 @@ const SlideSeven = () => {
         ) : (
           <div className="animate-slideIn">
             <h3 className="group relative text-3xl md:text-5xl mb-4">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Vitamin E acetate: <Tooltip text="Vitamin E acetate:" />
               </span>
             </h3>

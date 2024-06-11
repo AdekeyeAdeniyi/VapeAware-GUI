@@ -93,12 +93,12 @@ const SlideFive = () => {
             <List delaytime="7s">Dry mouth</List>
             <List delaytime="8s">Headaches</List>
             <List delaytime="9s">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Eye Irritations <Tooltip text="Eye Irritations" />
               </span>
             </List>
             <List delaytime="10s">
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 Nausea <Tooltip text="Nausea" />
               </span>
             </List>

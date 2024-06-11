@@ -76,24 +76,24 @@ const SlideThree = () => {
             Nicotine: <Tooltip text="Nicotine" />
           </h3>
           <ul className="text-xl md:text-3xl list-disc space-y-4">
-            <List delaytime="2.5s">
+            <List delaytime="5s">
               A{" "}
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 stimulant <Tooltip text="Stimulant" />
               </span>{" "}
               drug
             </List>
 
-            <List delaytime="8.5s">
+            <List delaytime="11s">
               Use can lead to{" "}
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 addiction <Tooltip text="Addiction" />
               </span>
             </List>
 
-            <List delaytime="24.5s">
+            <List delaytime="28s">
               Nicotine{" "}
-              <span className="group block relative w-full">
+              <span className="group inline-block relative">
                 withdrawal <Tooltip text="Withdrawal" />
               </span>
             </List>
