@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import { useDrag, useDrop } from "react-dnd";
+import { DndProvider } from "react-dnd-multi-backend";
+import { HTML5toTouch } from "rdndmb-html5-to-touch";
+
 import { VideoContext } from "../hooks/modules/VideoContext";
 
 import audio1 from "../assets/audio/9_true.mp3";
@@ -155,14 +157,15 @@ const SlideEight = () => {
 
   return (
     <>
-      <div className="absolute bottom-0 left-0 top-0 right-0 -z-10">
-        <img
-          src={BackgroundImage}
-          alt="backgroung-image"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider options={HTML5toTouch}>
+        <div className="absolute bottom-0 left-0 top-0 right-0 -z-10">
+          <img
+            src={BackgroundImage}
+            alt="backgroung-image"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
         <div className="quiz-container">
           <div>
             <div className="question-container">
