@@ -88,12 +88,12 @@ const SlideSix = () => {
       />
 
       {videoTime && (
-        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+        <div className="flex flex-col justify-center pl-4 md:pl-10 lg:pl-24 h-full max-w-[80ch]">
           <div className="animate-slideIn">
             <h3 className="group relative text-3xl md:text-5xl mb-4">
               Long-term impacts:
             </h3>
-            <ul className="text-xl md:text-3xl list-disc space-y-4">
+            <ul className="text-xl md:text-2xl list-disc pl-7 space-y-4">
               <List delaytime="8s">
                 <span className="group inline-block relative">
                   Anxiety <Tooltip text="Anxiety" />

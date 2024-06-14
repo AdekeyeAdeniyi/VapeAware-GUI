@@ -37,8 +37,13 @@ const SlideThree = () => {
     },
     {
       start: 9,
+      end: 11,
+      text: "It can also lead to addiction.",
+    },
+    {
+      start: 11,
       end: 18,
-      text: "It can also lead to addiction. That means if a person starts using nicotine, their body will become dependent on it, and it will be very hard for them to stop using it.",
+      text: "That means if a person starts using nicotine, their body will become dependent on it, and it will be very hard for them to stop using it.",
     },
     {
       start: 18,
@@ -74,12 +79,12 @@ const SlideThree = () => {
       />
 
       {videoTime && (
-        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+        <div className="flex flex-col justify-center pl-4 md:pl-10 lg:pl-24 h-full max-w-[80ch]">
           <div className="animate-slideIn">
             <h3 className="group relative text-3xl md:text-5xl mb-4">
               Nicotine: <Tooltip text="Nicotine" />
             </h3>
-            <ul className="text-xl md:text-3xl list-disc space-y-4">
+            <ul className="text-xl md:text-2xl list-disc pl-7 space-y-4">
               <List delaytime="5s">
                 A{" "}
                 <span className="group inline-block relative">

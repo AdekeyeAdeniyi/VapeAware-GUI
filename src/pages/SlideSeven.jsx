@@ -50,6 +50,16 @@ const SlideSeven = () => {
       end: 35,
       text: "It’s also found in skin care products, which are also typically safe. It just shouldn’t be inhaled.",
     },
+    {
+      start: 35,
+      end: 42,
+      text: "Vaping hasn’t been around for that long, so there’s a lot we still don’t know about how vaping impacts health.",
+    },
+    {
+      start: 42,
+      end: 47,
+      text: " If someone asks you to vape, the best choice is to tell them no.",
+    },
   ];
 
   return (
@@ -65,17 +75,20 @@ const SlideSeven = () => {
         videoSrc={VapingSlide5}
         captionText={Captions}
         timeLapseHandler={setVideoTime}
-        className="w-[200px] md:w-[300px] h-auto right-0 top-0 absolute border-4 border-indigo-500"
+        className={` ${
+          videoTime < 36 &&
+          "w-[200px] md:w-[300px] h-auto right-0 top-0 absolute border-4 border-indigo-500"
+        } `}
       />
 
       {videoTime && (
-        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+        <div className="flex flex-col justify-center pl-4 md:pl-10 lg:pl-24 h-full max-w-[80ch]">
           {videoTime < 20 ? (
             <div className="animate-slideIn">
               <h3 className="group relative text-3xl md:text-5xl mb-4">
                 EVALI:
               </h3>
-              <ul className="text-xl md:text-3xl list-disc space-y-4">
+              <ul className="text-xl md:text-2xl list-disc pl-7 space-y-4">
                 <List delaytime="4s">
                   <span className="group block relative w-full">
                     EVALI{" "}
@@ -94,7 +107,7 @@ const SlideSeven = () => {
                   Vitamin E acetate: <Tooltip text="Vitamin E acetate:" />
                 </span>
               </h3>
-              <ul className="text-xl md:text-3xl list-disc space-y-4">
+              <ul className="text-xl md:text-3xl list-disc pl-7 space-y-4">
                 <List delaytime="26s">Safe in foods</List>
                 <List delaytime="30s">Safe in skin care products</List>
                 <List delaytime="34s">Shouldn’t be inhaled</List>

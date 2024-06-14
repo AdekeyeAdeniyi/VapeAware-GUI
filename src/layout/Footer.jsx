@@ -31,14 +31,14 @@ const Footer = () => {
           {!isCaption ? (
             <Button
               Icon={MessageSquareMore}
-              title="Captions"
+              title="Caption On"
               isFixed={true}
               onClick={showCaption}
             />
           ) : (
             <Button
               Icon={MessageSquare}
-              title="Uncaptions"
+              title="Uncaption Off"
               isFixed={true}
               onClick={hideCaption}
             />
@@ -68,7 +68,7 @@ const Footer = () => {
             onClick={() => {
               increamentValue(), reset();
             }}
-            style={{ backgroundColor: videoEnd && "#6a62e1" }}
+            isActive={videoEnd}
           />
         </div>
       </div>

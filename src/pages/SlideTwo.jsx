@@ -5,6 +5,12 @@ import VideoPlayer from "../components/VideoPlayer";
 
 import VapingSlide2 from "../assets/videos/vaping_slide_2.mp4";
 
+import Vape1 from "../assets/images/vape_1.jpeg";
+import Vape2 from "../assets/images/vape_2.jpeg";
+import Vape3 from "../assets/images/vape_3.jpeg";
+import Vape4 from "../assets/images/vape_4.jpeg";
+import Vape5 from "../assets/images/vape_5.jpeg";
+
 import BackgroundImage from "../assets/images/VapingLessonBackground1.png";
 import Caption from "../components/Caption";
 import Tooltip from "../components/Tooltip";
@@ -58,13 +64,13 @@ const SlideTwo = () => {
       />
 
       {videoTime && (
-        <div className="flex flex-col justify-center h-full pl-5 sm:pl-14 md:pl-[145px] max-w-[80ch] ">
+        <div className="flex flex-col justify-center pl-4 md:pl-10 lg:pl-24 h-full max-w-[80ch]">
           {videoTime < "17" && (
             <div className="animate-slideIn">
               <h3 className="group relative text-3xl md:text-5xl mb-4">
                 Vaping: <Tooltip text="Vaping" />
               </h3>
-              <ul className="text-xl md:text-3xl list-disc space-y-4">
+              <ul className="text-xl md:text-2xl list-disc pl-7 space-y-4">
                 <List delaytime="2s">
                   <span className="group inline-block relative">
                     Devices <Tooltip text="Devices" />
@@ -91,8 +97,35 @@ const SlideTwo = () => {
             </div>
           )}
           {videoTime > "17" && (
-            <h3 className="text-5xl mb-4">
+            <h3 className="text-3xl md:text-5xl mb-4">
               Most vaping products contain nicotine.
+              <div className=" flex flex-wrap gap-4 lg:grid grid-cols-2 lg:grid-cols-3 lg:gap-7 mt-4  lg:w-4/5">
+                <img
+                  src={Vape1}
+                  alt="vape_product"
+                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
+                />
+                <img
+                  src={Vape2}
+                  alt="vape_product"
+                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
+                />
+                <img
+                  src={Vape3}
+                  alt="vape_product"
+                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
+                />
+                <img
+                  src={Vape4}
+                  alt="vape_product"
+                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
+                />
+                <img
+                  src={Vape5}
+                  alt="vape_product"
+                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
+                />
+              </div>
             </h3>
           )}
         </div>
