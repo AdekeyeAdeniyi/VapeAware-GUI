@@ -49,9 +49,9 @@
     border: 2px dashed #494848;
     border-radius: 5px;
     padding: 20px;
-    height: 100px;
-    max-width: 200px;
-    margin: 20px auto 0 auto;
+    height: 150px;
+    max-width: 300px;
+    margin: 30px auto 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +68,8 @@
     background-color: #eee;
     padding: 10px;
     border-radius: 5px;
+    width: 100px;
+    height: 50px;
     cursor: pointer;
     display: inline-flex;
     justify-content: center;
