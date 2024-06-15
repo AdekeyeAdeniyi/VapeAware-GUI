@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { DndProvider } from "react-dnd-multi-backend";
 import { HTML5toTouch } from "rdndmb-html5-to-touch";
@@ -50,7 +50,7 @@ const questions = [
   {
     question: "Vaping is good for your health?",
     narration: audio3,
-    narrationCaption: "Vaping is good for your health?",
+    narrationCaption: "Vaping is good for your health? True or False.",
     options: [
       {
         text: "True",
@@ -87,7 +87,7 @@ const questions = [
       "People are able to legally buy vape devices and products, so they must be safe for young people to use?",
     narration: audio6,
     narrationCaption:
-      "People are able to legally buy vape devices and products, so they must be safe for young people to use?",
+      "People are able to legally buy vape devices and products, so they must be safe for young people to use? True or False.",
     options: [
       {
         text: "True",
@@ -245,45 +245,49 @@ const SlideNine = () => {
   const { setVideoEnd } = useContext(VideoContext);
   const { isCaption, setCaptionText } = useContext(CaptionContext);
 
+  const audio1Ref = useRef(null);
+  const audio2Ref = useRef(null);
+
   useEffect(() => {
     const currentQuestion = questions[currentQuestionIndex];
-    let audio;
+    let audioEl = audio1Ref.current;
     if (currentQuestion) {
       if (currentQuestion.narration) {
-        audio = new Audio(currentQuestion.narration);
+        audioEl.src = currentQuestion.narration;
         setIsQuestionAudioPlaying(true);
 
-        audio.addEventListener("play", () => {
+        audioEl.addEventListener("play", () => {
           setCaptionText(currentQuestion.narrationCaption);
         });
-        audio.onended = () => {
+        audioEl.onended = () => {
           setCaptionText(" ");
           setIsQuestionAudioPlaying(false);
         };
 
-        audio.play();
+        audioEl.play();
       }
     }
   }, [currentQuestionIndex]);
 
   const handleDrop = (option) => {
     setDroppedOption(option);
-    const audio = new Audio(option.audio);
-    audio.play();
+    let audioEl = audio2Ref.current;
+    audioEl.src = option.audio;
+
     const updateCurrentTime = () => {
-      const currentTime = audio.currentTime;
+      const currentTime = audioEl.currentTime;
       const currentCaption = option.caption.find(
         (caption) => currentTime >= caption.start && currentTime <= caption.end
       );
 
       if (currentCaption) setCaptionText(currentCaption.text);
     };
-    audio.addEventListener("timeupdate", updateCurrentTime);
+    audioEl.addEventListener("timeupdate", updateCurrentTime);
     if (currentQuestionIndex < questions.length) {
-      audio.onended = () => {
+      audioEl.onended = () => {
         if (currentQuestionIndex < questions.length - 1) {
+          setCaptionText("");
           setDroppedOption(null);
-          setCaptionText(" ");
           setCurrentQuestionIndex((prev) => prev + 1);
         }
 
@@ -292,6 +296,8 @@ const SlideNine = () => {
         }
       };
     }
+
+    audioEl.play();
   };
 
   const currentQuestion = questions[currentQuestionIndex];
@@ -313,6 +319,14 @@ const SlideNine = () => {
               <h2 className="text-2xl">Q. {currentQuestion.question}</h2>
             </div>
 
+            {!isQuestionAudioPlaying && (
+              <Bucket
+                onDrop={handleDrop}
+                droppedOption={droppedOption}
+                answer={currentQuestion.correctAnswer}
+              />
+            )}
+
             {!droppedOption && (
               <div className="options-container">
                 {currentQuestion.options.map((option, index) => (
@@ -325,16 +339,11 @@ const SlideNine = () => {
                 ))}
               </div>
             )}
-            {!isQuestionAudioPlaying && (
-              <Bucket
-                onDrop={handleDrop}
-                droppedOption={droppedOption}
-                answer={currentQuestion.correctAnswer}
-              />
-            )}
           </div>
         </div>
       </DndProvider>
+      <audio ref={audio1Ref} />
+      <audio ref={audio2Ref} />
       {isCaption && <Caption />}
     </>
   );

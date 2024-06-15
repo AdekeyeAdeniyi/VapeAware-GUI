@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 import { VideoContext } from "../hooks/modules/VideoContext";
@@ -19,9 +19,10 @@ const SlideTen = () => {
   const { isCaption, setCaptionText } = useContext(CaptionContext);
   const { setVideoEnd } = useContext(VideoContext);
 
-  useEffect(() => {
-    let audio = [new Audio(audio1), new Audio(audio2)];
+  const audio1Ref = useRef(null);
+  const audio2Ref = useRef(null);
 
+  useEffect(() => {
     const handleAudio1Play = () => setCaptionText(captions[0]);
     const handleAudio2Play = () => setCaptionText(captions[1]);
     const handleAudioEnd = () => {
@@ -29,23 +30,26 @@ const SlideTen = () => {
     };
     const handleAudio1End = () => {
       setCaptionText(" ");
-      audio[1].play();
+      audio2Ref.current.play();
     };
 
-    audio[0].addEventListener("play", handleAudio1Play);
-    audio[0].addEventListener("ended", handleAudio1End);
-    audio[1].addEventListener("play", handleAudio2Play);
-    audio[1].addEventListener("ended", handleAudioEnd);
+    const audio1El = audio1Ref.current;
+    const audio2El = audio2Ref.current;
 
-    audio[0].play();
+    audio1El.addEventListener("play", handleAudio1Play);
+    audio1El.addEventListener("ended", handleAudio1End);
+    audio2El.addEventListener("play", handleAudio2Play);
+    audio2El.addEventListener("ended", handleAudioEnd);
+
+    audio1El.play();
 
     return () => {
-      audio[0].removeEventListener("play", handleAudio1Play);
-      audio[0].removeEventListener("ended", handleAudio1End);
-      audio[1].removeEventListener("play", handleAudio2Play);
-      audio[1].removeEventListener("ended", handleAudioEnd);
+      audio1El.removeEventListener("play", handleAudio1Play);
+      audio1El.removeEventListener("ended", handleAudio1End);
+      audio2El.removeEventListener("play", handleAudio2Play);
+      audio2El.removeEventListener("ended", handleAudioEnd);
     };
-  }, [audio1, audio2, captions]);
+  }, [captions]);
 
   return (
     <div className="flex justify-center items-center h-full">
@@ -59,6 +63,8 @@ const SlideTen = () => {
       <h1 className="text-4xl md:text-5xl text-center animate-pulse">
         Post-test transition
       </h1>
+      <audio ref={audio1Ref} src={audio1} />
+      <audio ref={audio2Ref} src={audio2} />
       {isCaption && <Caption />}
     </div>
   );

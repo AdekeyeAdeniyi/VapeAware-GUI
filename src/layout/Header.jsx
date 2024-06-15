@@ -27,6 +27,14 @@ const Header = () => {
         return "8 – Knowledge check activity";
       case 9:
         return "13 - Post-test transition ";
+      case 10:
+        return "14 - Knowledge question";
+      case 11:
+        return "15 - Attitude question";
+      case 12:
+        return "16 - Behavioral intent question";
+      case 13:
+        return "17 -End slide";
       default:
         break;
     }

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 import { VideoContext } from "../hooks/modules/VideoContext";
@@ -7,7 +7,7 @@ import Caption from "../components/Caption";
 
 import BackgroundImage from "../assets/images/VapingLessonBackground3.png";
 
-import audio1 from "../assets/audio/knowlege-check-activity.mp3";
+import audio from "../assets/audio/knowlege-check-activity.mp3";
 
 const captions = [
   {
@@ -25,9 +25,11 @@ const captions = [
 const SlideEight = () => {
   const { isCaption, setCaptionText } = useContext(CaptionContext);
   const { setVideoEnd } = useContext(VideoContext);
+  const audioRef = useRef(null);
 
   useEffect(() => {
-    let audio = new Audio(audio1);
+    let audio = audioRef.current;
+
     const updateCurrentTime = () => {
       const currentTime = audio.currentTime;
       const currentCaption = captions.find(
@@ -49,7 +51,7 @@ const SlideEight = () => {
         setCaptionText(" "), setVideoEnd(true);
       });
     };
-  }, [audio1, captions]);
+  }, [captions]);
 
   return (
     <div className="flex justify-center items-center h-full">
@@ -63,6 +65,7 @@ const SlideEight = () => {
       <h1 className="text-4xl md:text-5xl text-center animate-pulse">
         Knowledge check activity
       </h1>
+      <audio ref={audioRef} src={audio} />
       {isCaption && <Caption />}
     </div>
   );

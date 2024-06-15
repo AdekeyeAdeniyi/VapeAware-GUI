@@ -14,7 +14,7 @@ import {
 import Button from "../components/Button";
 
 const Footer = () => {
-  const { decreamentValue, increamentValue, replaySlide } =
+  const { slideValue, decreamentValue, increamentValue, replaySlide } =
     useContext(ProgressContext);
   const { isCaption, showCaption, hideCaption, setCaptionText } =
     useContext(CaptionContext);
@@ -47,14 +47,16 @@ const Footer = () => {
         </div>
 
         <div className="flex items-center justify-between gap-3 flex-wrap">
-          <Button
-            Icon={ChevronLeft}
-            title="Back"
-            iconLocation="left"
-            onClick={() => {
-              decreamentValue(), reset();
-            }}
-          />
+          {slideValue >= 1 && (
+            <Button
+              Icon={ChevronLeft}
+              title="Back"
+              iconLocation="left"
+              onClick={() => {
+                decreamentValue(), reset();
+              }}
+            />
+          )}
           <Button
             Icon={Repeat}
             title="Replay"
@@ -62,14 +64,16 @@ const Footer = () => {
               replaySlide(), reset();
             }}
           />
-          <Button
-            Icon={ChevronRight}
-            title="Next"
-            onClick={() => {
-              increamentValue(), reset();
-            }}
-            isActive={videoEnd}
-          />
+          {slideValue < 13 && videoEnd && (
+            <Button
+              Icon={ChevronRight}
+              title="Next"
+              onClick={() => {
+                increamentValue(), reset();
+              }}
+              isActive={videoEnd}
+            />
+          )}
         </div>
       </div>
     </footer>
