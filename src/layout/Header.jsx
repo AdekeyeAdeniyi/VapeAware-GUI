@@ -23,6 +23,10 @@ const Header = () => {
         return "7 - EVALI";
       case 7:
         return "8 – Knowledge check activity";
+      case 8:
+        return "8 – Knowledge check activity";
+      case 9:
+        return "13 - Post-test transition ";
       default:
         break;
     }
