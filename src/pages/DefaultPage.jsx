@@ -27,7 +27,7 @@ const DefaultPage = () => {
   return (
     <>
       {isLoading ? (
-        <div className="flex justify-center items-center flex-col gap-8 w-full h-full bg-[#0074c8]">
+        <div className="flex justify-center items-center flex-col gap-8 w-full h-full min-h-[100dvh] bg-[#0074c8]">
           <div className="w-4/5 md:w-1/3">
             <img
               src={Logo}
@@ -52,7 +52,7 @@ const DefaultPage = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col w-full h-screen bg-gray-300">
+        <div className="flex flex-col w-full h-full min-h-[100dvh] bg-gray-300">
           <Header />
           <Main />
           <Footer />
