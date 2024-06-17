@@ -10,15 +10,15 @@ const Header = () => {
       case 0:
         return "1 - Intro";
       case 1:
-        return "2 - What is it";
+        return "2 - What is it vaping?";
       case 2:
         return "3 - Nicotine and Addiction";
       case 3:
         return "4 - Rules and regulations";
       case 4:
-        return "5 - Short term";
+        return "5 - Short term impacts";
       case 5:
-        return "6 - Long term";
+        return "6 - Long term impacts";
       case 6:
         return "7 - EVALI";
       case 7:

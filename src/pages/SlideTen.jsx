@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 import { VideoContext } from "../hooks/modules/VideoContext";
+import { ProgressContext } from "../hooks/modules/ProgressContext";
 
 import Caption from "../components/Caption";
 
@@ -18,6 +19,7 @@ const captions = [
 const SlideTen = () => {
   const { isCaption, setCaptionText } = useContext(CaptionContext);
   const { setVideoEnd } = useContext(VideoContext);
+  const { increamentValue } = useContext(ProgressContext);
 
   const audio1Ref = useRef(null);
   const audio2Ref = useRef(null);
@@ -60,9 +62,26 @@ const SlideTen = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <h1 className="text-4xl md:text-5xl text-center animate-pulse">
-        Post-test transition
-      </h1>
+      <div className="flex flex-col px-5 items-center gap-6">
+        <h1 className="text-4xl md:text-5xl text-center animate-pulse">
+          Post-test transition
+        </h1>
+        <p className="text-xl max-w-[60ch] text-center">
+          Ready to answer questions about what you've learned and how you feel
+          about vaping?
+        </p>
+        <p className="mb-2 text-xl">
+          <b>Instruction:</b> Select all that apply
+        </p>
+
+        <button
+          onClick={increamentValue}
+          className="relative inline-flex justify-center items-center gap-1 w-28 h-11 p-2 sm:px-6 sm:py-2 bg-indigo-600 text-white rounded-full font-semibold transition-all hover:bg-indigo-800"
+        >
+          Start
+        </button>
+      </div>
+
       <audio ref={audio1Ref} src={audio1} />
       <audio ref={audio2Ref} src={audio2} />
       {isCaption && <Caption />}

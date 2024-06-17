@@ -1,6 +1,11 @@
 import { useContext, useState } from "react";
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
+
 import VideoPlayer from "../components/VideoPlayer";
 
 import VapingSlide2 from "../assets/videos/vaping_slide_2.mp4";
@@ -64,7 +69,7 @@ const SlideTwo = () => {
       />
 
       {videoTime && (
-        <div className="flex flex-col justify-center pl-4 md:pl-10 lg:pl-24 h-full max-w-[80ch]">
+        <div className="flex flex-col justify-center px-4 md:px-10 lg:px-24 h-full max-w-[50%]">
           {videoTime < "17" && (
             <div className="animate-slideIn">
               <h3 className="group relative text-3xl md:text-5xl mb-4">
@@ -97,36 +102,60 @@ const SlideTwo = () => {
             </div>
           )}
           {videoTime > "17" && (
-            <h3 className="text-3xl md:text-5xl mb-4">
-              Most vaping products contain nicotine.
-              <div className=" flex flex-wrap gap-4 lg:grid grid-cols-2 lg:grid-cols-3 lg:gap-7 mt-4  lg:w-4/5">
-                <img
-                  src={Vape1}
-                  alt="vape_product"
-                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
-                />
-                <img
-                  src={Vape2}
-                  alt="vape_product"
-                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
-                />
-                <img
-                  src={Vape3}
-                  alt="vape_product"
-                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
-                />
-                <img
-                  src={Vape4}
-                  alt="vape_product"
-                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
-                />
-                <img
-                  src={Vape5}
-                  alt="vape_product"
-                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-full lg:h-[140px] object-cover hover:scale-110 transition-all"
-                />
-              </div>
-            </h3>
+            <div className="mt-6">
+              <h3 className="text-3xl md:text-5xl">
+                Most vaping products contain nicotine.
+              </h3>
+              <Swiper
+                className="mt-4"
+                modules={[Autoplay]}
+                spaceBetween={10}
+                slidesPerView={2}
+                breakpoints={{
+                  992: {
+                    slidesPerView: 3,
+                  },
+                }}
+                autoplay
+                loop
+              >
+                <SwiperSlide>
+                  <img
+                    src={Vape1}
+                    alt="vape_product"
+                    className="object-cover h-full"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src={Vape2}
+                    alt="vape_product"
+                    className="object-cover h-full"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src={Vape3}
+                    alt="vape_product"
+                    className="object-cover h-full"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src={Vape4}
+                    alt="vape_product"
+                    className="object-cover h-full"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src={Vape5}
+                    alt="vape_product"
+                    className="object-cover h-full"
+                  />
+                </SwiperSlide>
+              </Swiper>
+            </div>
           )}
         </div>
       )}

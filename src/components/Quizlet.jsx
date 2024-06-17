@@ -2,12 +2,14 @@ import { useContext, useEffect, useRef } from "react";
 
 import { VideoContext } from "../hooks/modules/VideoContext";
 import { CaptionContext } from "../hooks/modules/CaptionContext";
+import { ProgressContext } from "../hooks/modules/ProgressContext";
 
 import Caption from "./Caption";
 
 const Quizlet = ({ question, audioSrc, captions, backgroundImage }) => {
   const { isCaption, setCaptionText } = useContext(CaptionContext);
   const { setVideoEnd } = useContext(VideoContext);
+  const { increamentValue } = useContext(ProgressContext);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -45,8 +47,8 @@ const Quizlet = ({ question, audioSrc, captions, backgroundImage }) => {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex flex-col justify-center md:max-w-[90ch] mx-auto h-full px-8">
-        <h3 className="text-2xl mb-4">Q. {question.title}</h3>
+      <div className="flex flex-col justify-center gap-5 md:max-w-[90ch] mx-auto h-full px-8">
+        <h3 className="text-2xl">Q. {question.title}</h3>
         <div className="space-y-4">
           {question.options.map((option, idx) => (
             <label
@@ -64,6 +66,12 @@ const Quizlet = ({ question, audioSrc, captions, backgroundImage }) => {
             </label>
           ))}
         </div>
+        <button
+          onClick={increamentValue}
+          className="relative inline-flex justify-center items-center gap-1 w-28 h-11 p-2 ml-auto sm:px-6 sm:py-2 bg-indigo-600 text-white rounded-full font-semibold transition-all hover:bg-indigo-800"
+        >
+          Submit
+        </button>
         <audio ref={audioRef}></audio>
         {isCaption && <Caption />}
       </div>

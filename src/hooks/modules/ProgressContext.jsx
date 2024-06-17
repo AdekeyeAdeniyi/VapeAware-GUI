@@ -27,6 +27,11 @@ export const ProgressProvider = ({ children }) => {
     setKey((prevKey) => prevKey + 1); // Update key to force re-render
   };
 
+  const resetValues = () => {
+    setSlideValue(0);
+    setValue(7.6);
+  };
+
   return (
     <ProgressContext.Provider
       value={{
@@ -36,6 +41,7 @@ export const ProgressProvider = ({ children }) => {
         decreamentValue,
         key,
         replaySlide,
+        resetValues,
       }}
     >
       {children}

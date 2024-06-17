@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 
 import { CaptionContext } from "../hooks/modules/CaptionContext";
 import { VideoContext } from "../hooks/modules/VideoContext";
+import { ProgressContext } from "../hooks/modules/ProgressContext";
 
 import Caption from "../components/Caption";
 
@@ -25,6 +26,7 @@ const captions = [
 const SlideEight = () => {
   const { isCaption, setCaptionText } = useContext(CaptionContext);
   const { setVideoEnd } = useContext(VideoContext);
+  const { increamentValue } = useContext(ProgressContext);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -62,9 +64,22 @@ const SlideEight = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <h1 className="text-4xl md:text-5xl text-center animate-pulse">
-        Knowledge check activity
-      </h1>
+      <div className="flex flex-col px-5 items-center">
+        <h1 className="text-4xl md:text-5xl text-center animate-pulse">
+          Knowledge check activity
+        </h1>
+        <p className="my-8 text-xl">
+          <b>Instruction:</b> Drag and Drop either the <b>True</b> or{" "}
+          <b>False</b> button into the square box above
+        </p>
+
+        <button
+          onClick={increamentValue}
+          className="relative inline-flex justify-center items-center gap-1 w-28 h-11 p-2 sm:px-6 sm:py-2 bg-indigo-600 text-white rounded-full font-semibold transition-all hover:bg-indigo-800"
+        >
+          Start
+        </button>
+      </div>
       <audio ref={audioRef} src={audio} />
       {isCaption && <Caption />}
     </div>

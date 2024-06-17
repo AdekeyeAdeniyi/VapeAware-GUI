@@ -3,8 +3,8 @@ import { useDrag, useDrop } from "react-dnd";
 import { DndProvider } from "react-dnd-multi-backend";
 import { HTML5toTouch } from "rdndmb-html5-to-touch";
 
-import { VideoContext } from "../hooks/modules/VideoContext";
 import { CaptionContext } from "../hooks/modules/CaptionContext";
+import { ProgressContext } from "../hooks/modules/ProgressContext";
 
 import Caption from "../components/Caption";
 
@@ -242,8 +242,8 @@ const SlideNine = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [droppedOption, setDroppedOption] = useState(null);
   const [isQuestionAudioPlaying, setIsQuestionAudioPlaying] = useState(false);
-  const { setVideoEnd } = useContext(VideoContext);
   const { isCaption, setCaptionText } = useContext(CaptionContext);
+  const { increamentValue } = useContext(ProgressContext);
 
   const audio1Ref = useRef(null);
   const audio2Ref = useRef(null);
@@ -292,7 +292,10 @@ const SlideNine = () => {
         }
 
         if (currentQuestionIndex == questions.length - 1) {
-          setVideoEnd(true);
+          setCaptionText("");
+          setTimeout(() => {
+            increamentValue();
+          }, 1000);
         }
       };
     }
