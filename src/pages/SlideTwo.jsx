@@ -69,35 +69,50 @@ const SlideTwo = () => {
       />
 
       {videoTime && (
-        <div className="flex flex-col justify-center px-4 md:px-10 lg:px-24 h-full max-w-[50%]">
+        <div className="flex flex-col justify-center px-4 md:px-10 lg:px-24 h-full max-w-[80ch] xl:max-w-[100ch]">
           {videoTime < "17" && (
             <div className="animate-slideIn">
               <h3 className="group relative text-3xl md:text-5xl mb-4">
-                <Tooltip text="breathing in a vapor that usually contains a liquid, nicotine and other chemicals and then breathing that vapor out" />
+                <Tooltip
+                  topValue="68"
+                  text="breathing in a vapor that usually contains a liquid, nicotine and other chemicals and then breathing that vapor out"
+                />
                 Vaping:{" "}
               </h3>
               <ul className="text-xl md:text-2xl list-disc pl-7 space-y-4">
                 <List delaytime="2s">
                   <span className="group inline-block">
                     Devices{" "}
-                    <Tooltip text="something that uses a battery to heat up a vaping liquid into a vapor that is breathed in" />
+                    <Tooltip
+                      topValue="68"
+                      text="something that uses a battery to heat up a vaping liquid into a vapor that is breathed in"
+                    />
                   </span>{" "}
                   heat a liquid into a{" "}
                   <span className="group inline-block">
                     vapor.{" "}
-                    <Tooltip text="the common term for the aerosol mist that vaping devices make by heating up the liquid. It contains ultra-fine, or very tiny, particles that are breathed into the lungs." />
+                    <Tooltip
+                      topValue="88"
+                      text="the common term for the aerosol mist that vaping devices make by heating up the liquid. It contains ultra-fine, or very tiny, particles that are breathed into the lungs."
+                    />
                   </span>
                 </List>
 
                 <List delaytime="5s">
                   <span className="group inline-block">
                     Vaping liquids{" "}
-                    <Tooltip text="also called e-liquid, e-juice or vape juice. It typically contains water, nicotine and other chemicals. It can also contain chemicals that add flavors to the liquid" />
+                    <Tooltip
+                      topValue="88"
+                      text="also called e-liquid, e-juice or vape juice. It typically contains water, nicotine and other chemicals. It can also contain chemicals that add flavors to the liquid"
+                    />
                   </span>{" "}
                   have nicotine, harmful{" "}
                   <span className="group inline-block">
                     chemicals{" "}
-                    <Tooltip text="Chemany substance that has a defined composition because it is always made up of the same stufficals" />
+                    <Tooltip
+                      topValue="68"
+                      text="Chemany substance that has a defined composition because it is always made up of the same stufficals"
+                    />
                   </span>{" "}
                   and flavorings in them.
                 </List>

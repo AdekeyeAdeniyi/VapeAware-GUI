@@ -83,14 +83,20 @@ const SlideThree = () => {
           <div className="animate-slideIn">
             <h3 className="group relative text-3xl md:text-5xl mb-4">
               Nicotine:{" "}
-              <Tooltip text="a highly addictive stimulant drug found in tobacco and vaping devices" />
+              <Tooltip
+                topValue="48"
+                text="a highly addictive stimulant drug found in tobacco and vaping devices"
+              />
             </h3>
             <ul className="text-xl md:text-2xl list-disc pl-7 space-y-4">
               <List delaytime="5s">
                 A{" "}
                 <span className="group inline-block">
                   stimulant{" "}
-                  <Tooltip text="a type of drug that speeds up the body systems and may make someone energetic, alert, overly excited or very talkative" />
+                  <Tooltip
+                    topValue="88"
+                    text="a type of drug that speeds up the body systems and may make someone energetic, alert, overly excited or very talkative"
+                  />
                 </span>{" "}
                 drug
               </List>
@@ -99,7 +105,10 @@ const SlideThree = () => {
                 Use can lead to{" "}
                 <span className="group inline-block">
                   addiction{" "}
-                  <Tooltip text="a condition or disease in which a person is unable to stop using a substance or engaging in a behavior" />
+                  <Tooltip
+                    topValue="68"
+                    text="a condition or disease in which a person is unable to stop using a substance or engaging in a behavior"
+                  />
                 </span>
               </List>
 
@@ -107,7 +116,10 @@ const SlideThree = () => {
                 Nicotine{" "}
                 <span className="group inline-block">
                   withdrawal{" "}
-                  <Tooltip text="occurs when someone is addicted a drug and stops using. It includes physical, mental and emotional symptoms that make quitting a drug really hard to do. Nicotine withdrawal symptoms can last from several days to several weeks after quitting." />
+                  <Tooltip
+                    topValue="148"
+                    text="occurs when someone is addicted a drug and stops using. It includes physical, mental and emotional symptoms that make quitting a drug really hard to do. Nicotine withdrawal symptoms can last from several days to several weeks after quitting."
+                  />
                 </span>
               </List>
             </ul>

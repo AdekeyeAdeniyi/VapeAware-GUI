@@ -92,7 +92,10 @@ const SlideSeven = () => {
                 <List delaytime="4s">
                   <span className="group block relative w-full">
                     EVALI{" "}
-                    <Tooltip text="E-cigarette, or Vaping Product, Use Associated Lung Injury (EVALI) – a serious medical condition in which a person’s lungs become damaged from substances in e-cigarettes and vaping products" />
+                    <Tooltip
+                      topValue="108"
+                      text="E-cigarette, or Vaping Product, Use Associated Lung Injury (EVALI) – a serious medical condition in which a person’s lungs become damaged from substances in e-cigarettes and vaping products"
+                    />
                   </span>
                 </List>
                 <List delaytime="9s">Severe lung disease</List>
@@ -105,7 +108,10 @@ const SlideSeven = () => {
               <h3 className="group relative text-3xl md:text-5xl mb-4">
                 <span className="group inline-block">
                   Vitamin E acetate:{" "}
-                  <Tooltip text="an oily chemical added to some vape liquids and devices that contain THC and has been linked to lung issues like EVALI" />
+                  <Tooltip
+                    topValue="68"
+                    text="an oily chemical added to some vape liquids and devices that contain THC and has been linked to lung issues like EVALI"
+                  />
                 </span>
               </h3>
               <ul className="text-xl md:text-3xl list-disc pl-7 space-y-4">
