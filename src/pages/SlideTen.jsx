@@ -63,7 +63,7 @@ const SlideTen = () => {
         />
       </div>
       <div className="flex flex-col px-5 items-center gap-6">
-        <h1 className="text-4xl md:text-5xl text-center animate-pulse">
+        <h1 className="text-4xl md:text-5xl text-center">
           Post-test transition
         </h1>
         <p className="text-xl max-w-[60ch] text-center">

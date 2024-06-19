@@ -86,7 +86,8 @@ const SlideFour = () => {
         <div className="flex flex-col justify-center pl-4 md:pl-10 lg:pl-24 h-full max-w-[80ch]">
           <div className="animate-slideIn">
             <h3 className="group relative text-3xl md:text-5xl mb-4">
-              Rules and regulations: <Tooltip text="Rules and regulations" />
+              Rules and regulations:{" "}
+              <Tooltip text="rules made by a government or other authority in order to control the way something is done or the way people behave" />
             </h3>
             <ul className="text-xl md:text-2xl pl-7 list-disc space-y-4">
               <List delaytime="4s">
@@ -94,8 +95,9 @@ const SlideFour = () => {
               </List>
 
               <List delaytime="12s">
-                <span className="group inline-block relative">
-                  Warning labels <Tooltip text=" Warning labels" />
+                <span className="group inline-block">
+                  Warning labels{" "}
+                  <Tooltip text="included on packaging or in an instruction manual and are designed to inform people about the risks of using a product" />
                 </span>{" "}
                 about nicotine and addiction.
               </List>

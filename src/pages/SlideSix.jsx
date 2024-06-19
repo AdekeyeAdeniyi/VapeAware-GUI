@@ -95,30 +95,35 @@ const SlideSix = () => {
             </h3>
             <ul className="text-xl md:text-2xl list-disc pl-7 space-y-4">
               <List delaytime="8s">
-                <span className="group inline-block relative">
-                  Anxiety <Tooltip text="Anxiety" />
+                <span className="group inline-block">
+                  Anxiety{" "}
+                  <Tooltip text="a mental health condition when a person worries even though there is nothing to worry about, or worries all the time and it affects their daily life " />
                 </span>
               </List>
               <List delaytime="9s">
-                <span className="group inline-block relative">
-                  Depression <Tooltip text="Depression" />
+                <span className="group inline-block">
+                  Depression{" "}
+                  <Tooltip text="a mental health condition when a person feels sad (or has a low or irritable mood) for an extended period of time and often loses interest or pleasure in doing usual activities" />
                 </span>
               </List>
               <List delaytime="10s">Sleeping problem</List>
               <List delaytime="12s">
-                <span className="group inline-block relative">
-                  Lungs damage <Tooltip text="Lungs damage" />
+                <span className="group inline-block">
+                  Lungs damage{" "}
+                  <Tooltip text="vaping can lead to swelling in the lungs, which are the organs that air goes into when you breathe, that results in coughing, wheezing and shortness of breath. Over time, that swelling can lead to scarring and permanent harm to the lungs." />
                 </span>
               </List>
               <List delaytime="13s">Trouble focusing</List>
               <List delaytime="15s">
-                <span className="group inline-block relative">
-                  Organ damage <Tooltip text="Organ Damage" />
+                <span className="group inline-block">
+                  Organ damage{" "}
+                  <Tooltip text="occurs when the structure or function of an internal organ, such as kidneys, liver, brain, or heart, is impaired" />
                 </span>
               </List>
               <List delaytime="17s">
-                <span className="group inline-block relative">
-                  Chemical exporsure <Tooltip text="Chemical exporsure" />
+                <span className="group inline-block">
+                  Chemical exporsure{" "}
+                  <Tooltip text="when a person comes into contact with a substance. Exposure can happen by breathing in a substance, eating or drinking it, or by contact with the body" />
                 </span>
               </List>
               <List delaytime="22s">

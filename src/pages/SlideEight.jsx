@@ -65,7 +65,7 @@ const SlideEight = () => {
         />
       </div>
       <div className="flex flex-col px-5 items-center">
-        <h1 className="text-4xl md:text-5xl text-center animate-pulse">
+        <h1 className="text-4xl md:text-5xl text-center">
           Knowledge check activity
         </h1>
         <p className="my-8 text-xl">

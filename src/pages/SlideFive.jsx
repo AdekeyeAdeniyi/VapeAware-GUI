@@ -96,13 +96,15 @@ const SlideFive = () => {
               <List delaytime="7s">Dry mouth</List>
               <List delaytime="8s">Headaches</List>
               <List delaytime="9s">
-                <span className="group inline-block relative">
-                  Eye Irritations <Tooltip text="Eye Irritations" />
+                <span className="group inline-block">
+                  Eye Irritations{" "}
+                  <Tooltip text="a feeling of dryness, itchiness, pain or feeling that there is something in the eye" />
                 </span>
               </List>
               <List delaytime="10s">
-                <span className="group inline-block relative">
-                  Nausea <Tooltip text="Nausea" />
+                <span className="group inline-block">
+                  Nausea{" "}
+                  <Tooltip text="feeling an urge to vomit or an uneasy stomach feeling" />
                 </span>
               </List>
             </ul>

@@ -73,26 +73,31 @@ const SlideTwo = () => {
           {videoTime < "17" && (
             <div className="animate-slideIn">
               <h3 className="group relative text-3xl md:text-5xl mb-4">
-                Vaping: <Tooltip text="Vaping" />
+                <Tooltip text="breathing in a vapor that usually contains a liquid, nicotine and other chemicals and then breathing that vapor out" />
+                Vaping:{" "}
               </h3>
               <ul className="text-xl md:text-2xl list-disc pl-7 space-y-4">
                 <List delaytime="2s">
-                  <span className="group inline-block relative">
-                    Devices <Tooltip text="Devices" />
+                  <span className="group inline-block">
+                    Devices{" "}
+                    <Tooltip text="something that uses a battery to heat up a vaping liquid into a vapor that is breathed in" />
                   </span>{" "}
                   heat a liquid into a{" "}
-                  <span className="group inline-block relative">
-                    vapor. <Tooltip text="Vapor" />
+                  <span className="group inline-block">
+                    vapor.{" "}
+                    <Tooltip text="the common term for the aerosol mist that vaping devices make by heating up the liquid. It contains ultra-fine, or very tiny, particles that are breathed into the lungs." />
                   </span>
                 </List>
 
                 <List delaytime="5s">
-                  <span className="group inline-block relative">
-                    Vaping liquids <Tooltip text="Vaping liquids" />
+                  <span className="group inline-block">
+                    Vaping liquids{" "}
+                    <Tooltip text="also called e-liquid, e-juice or vape juice. It typically contains water, nicotine and other chemicals. It can also contain chemicals that add flavors to the liquid" />
                   </span>{" "}
                   have nicotine, harmful{" "}
-                  <span className="group inline-block relative">
-                    chemicals <Tooltip text="Chemicals" />
+                  <span className="group inline-block">
+                    chemicals{" "}
+                    <Tooltip text="Chemany substance that has a defined composition because it is always made up of the same stufficals" />
                   </span>{" "}
                   and flavorings in them.
                 </List>
@@ -116,7 +121,9 @@ const SlideTwo = () => {
                     slidesPerView: 3,
                   },
                 }}
-                autoplay
+                autoplay={{
+                  delay: 1000,
+                }}
                 loop
               >
                 <SwiperSlide>
